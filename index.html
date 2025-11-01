@@ -1,21 +1,27 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link href="styles.css" rel="stylesheet" />
-  <title>Weather App</title>
+  <title>Ma météo</title>
 </head>
 <body>
-  <body>
   <main>
     <section id="weather-wrapper">
-      <h1>Weather App</h1>
+      <h1>Quel temps fait-il ?</h1>
       <div id="weather-search">
-        <input id="search" type="text" placeholder="Search by city" />
-        <input id="submit" type="submit" onclick="fetchWeather()" value="Search" />
+        <input id="search" type="text" placeholder="Ville" />
+        <input id="submit" type="submit" onclick="fetchWeather()" value="Entrer" />
       </div>
       <div id="weather-data" style="display: none;"></div>
     </section>
   </main>
+
+  <video class="bg-video" autoplay muted loop playsinline aria-hidden="true">
+    <source src="/assets/Cartoon Cloud.mp4" type="video/mp4">
+  </video>
+  
   <script src="script.js"></script>
 </body>
 </html>

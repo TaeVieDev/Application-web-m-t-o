@@ -9,7 +9,7 @@ async function fetchWeather() {
 
     // Vérification de l'entrée utilisateur
     if (searchInput === "") {
-        displayError("Empty Input!", "Please try again with a valid <u>city name</u>.");
+        displayError("Entrée vide !", "Veuillez réessayer avec un nom de ville valide.");
         return;
     }
 
@@ -25,7 +25,7 @@ async function fetchWeather() {
         document.getElementById("search").value = "";
     } catch (error) {
         console.error("Error fetching weather data:", error);
-        displayError("Error", "An error occurred while fetching weather data. Please try again.");
+        displayError("Erreur", "Une erreur s'est produite lors de la récupération des données météo. Veuillez réessayer.");
     }
 }
 
@@ -37,21 +37,21 @@ async function getLonAndLat(searchInput) {
         const response = await fetch(geocodeURL);
         if (!response.ok) {
             console.log("Bad response! ", response.status);
-            displayError("API Error", "Unable to fetch location data. Please try again later.");
+            displayError("Erreur API", "Impossible de récupérer les données de géocodage. Veuillez réessayer plus tard.");
             return null;
         }
 
         const data = await response.json();
         if (data.length === 0) {
             console.log("No location found for:", searchInput);
-            displayError(`Invalid Input: "${searchInput}"`, "Please try again with a valid <u>city name</u>.");
+            displayError(`Entrée invalide : "${searchInput}"`, "Veuillez réessayer avec un nom de ville valide.");
             return null;
         }
 
         return data[0];
     } catch (error) {
         console.error("Error in getLonAndLat:", error);
-        displayError("Network Error", "Unable to connect to the weather service. Please check your internet connection.");
+        displayError("Erreur réseau", "Impossible de se connecter au service météo. Veuillez réessayer.");
         return null;
     }
 }
@@ -64,7 +64,7 @@ async function getWeatherData(lon, lat) {
         const response = await fetch(weatherURL);
         if (!response.ok) {
             console.log("Bad response! ", response.status);
-            displayError("API Error", "Unable to fetch weather data. Please try again later.");
+            displayError("Erreur API", "Impossible de récupérer les données météo. Veuillez réessayer plus tard.");
             return;
         }
 
@@ -72,7 +72,7 @@ async function getWeatherData(lon, lat) {
         displayWeatherData(data);
     } catch (error) {
         console.error("Error in getWeatherData:", error);
-        displayError("Network Error", "Unable to fetch weather information. Please try again.");
+        displayError("Erreur réseau", "Impossible de récupérer les informations météo. Veuillez réessayer.");
     }
 }
 
@@ -95,8 +95,8 @@ function displayWeatherData(data) {
             <div class="temperature">${temperature}°C</div>
             <p class="description">${description}</p>
             <div class="additional-info">
-                <span class="feels-like">Feels like: ${Math.round(data.main.feels_like - 273.15)}°C</span>
-                <span class="humidity">Humidity: ${data.main.humidity}%</span>
+                <span class="feels-like">Ressenti: ${Math.round(data.main.feels_like - 273.15)}°C</span>
+                <span class="humidity">Humidité: ${data.main.humidity}%</span>
             </div>
         </div>
     `;

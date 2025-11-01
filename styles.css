@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap');
+
 * {
   margin: 0;
   padding: 0;
@@ -5,23 +7,23 @@
 }
 
 body {
-  background-image: url(https://bit.ly/4bcK1Hc);
   background-repeat: no-repeat;
   background-size: cover;
-  font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
   height: 100vh;
+  font-family: 'Montserrat', system-ui, -apple-system, 'Helvetica Neue', Arial, sans-serif;
 }
 
 main {
-  background-color: rgba(227, 193, 173, 0.85);
+  background-color: rgba(255, 255, 255, 0.85);
   position: relative;
-  top: 30%;
-  border: 1px solid;
-  border-radius: 5px;
+  top: 20%;
   min-width: 540px;
   max-width: 50%;
   margin: auto;
   padding: 2em;
+  box-shadow: 0px 20px 40px rgba(0, 0, 0, 0.2);
+  border-radius: 15px;
+  backdrop-filter: blur(2px);
 }
 
 h1 {
@@ -29,20 +31,41 @@ h1 {
 }
 
 #search {
-  border-radius: 5px 0 0 5px;
+  border-radius: 8px;
   border: none;
   padding: 10px;
   font-size: 16px;
-  width: 70%;
+  width: 100%;
   height: 42px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(10px);
+  transition: 0.3s ease;
+}
+
+#search:focus {
+  outline: none;
+}
+
+#search:hover {
+  transform: scale(1.05);
 }
 
 #submit {
-  border-radius: 0 5px 5px 0;
-  padding: 10px;
+  padding: 6px 15px;
   font-size: 16px;
-  width: 5em;
   cursor: pointer;
+  border-radius: 8px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(10px);
+  border: none;
+  background-color: #83c9ff;
+  color: white;
+  transition: 0.3s ease;
+}
+
+#submit:hover {
+  background-color: #92d0ff;
+  transform: scale(1.05);
 }
 
 #weather-wrapper {
@@ -54,6 +77,9 @@ h1 {
 
 #weather-search {
   width: 50%;
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
 }
 
 #weather-data {
@@ -152,4 +178,8 @@ h1 {
   .additional-info {
     justify-content: center;
   }
+}
+
+.bg-video {
+  position: fixed; inset:0; width:100%; height:100%; object-fit:cover; z-index:-1;
 }
