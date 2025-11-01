@@ -1,5 +1,5 @@
 // Configuration de l'API
-const API_KEY = "REDACTED_API_KEY";
+const API_KEY = "7f2c19f32889d6732449e114bdc946cc";
 
 // Fonction principale pour récupérer les données météo
 async function fetchWeather() {
