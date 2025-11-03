@@ -61,7 +61,7 @@ async function getLonAndLat(searchInput) {
 
 // Fonction pour récupérer les données météo
 async function getWeatherData(lon, lat) {
-    const weatherURL = `/api/weather?lat=${lat}&lon=${lon}`;
+    const weatherURL = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${API_KEY}`;
 
     try {
         const response = await fetch(weatherURL);
