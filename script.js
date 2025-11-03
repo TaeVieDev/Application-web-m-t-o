@@ -1,5 +1,8 @@
 // Configuration de l'API
-const API_KEY = "7f2c19f32889d6732449e114bdc946cc";
+// IMPORTANT: ne laissez PAS la clé en dur dans le dépôt.
+// Pendant le déploiement GitHub Actions remplace le placeholder ci‑dessous
+// par la vraie clé stockée dans les Secrets (WEATHER_API_KEY).
+const API_KEY = "YOUR_API_KEY_PLACEHOLDER";
 
 // Fonction principale pour récupérer les données météo
 async function fetchWeather() {
@@ -58,7 +61,7 @@ async function getLonAndLat(searchInput) {
 
 // Fonction pour récupérer les données météo
 async function getWeatherData(lon, lat) {
-    const weatherURL = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${API_KEY}`;
+    const weatherURL = `/api/weather?lat=${lat}&lon=${lon}`;
 
     try {
         const response = await fetch(weatherURL);
@@ -112,3 +115,15 @@ function displayError(title, message) {
         </div>
     `;
 }
+
+document.addEventListener('DOMContentLoaded', () => {
+    console.log('script.js: DOMContentLoaded');
+    const form = document.getElementById('search-form');
+    if (form) {
+        form.addEventListener('submit', (e) => {
+            e.preventDefault();
+            fetchWeather();
+        });
+        return;
+    }
+});
