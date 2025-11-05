@@ -1,8 +1,5 @@
 // Configuration de l'API
-// IMPORTANT: ne laissez PAS la clé en dur dans le dépôt.
-// Pendant le déploiement GitHub Actions remplace le placeholder ci‑dessous
-// par la vraie clé stockée dans les Secrets (WEATHER_API_KEY).
-const API_KEY = "818a285a9cad4e135a0e00c4c51813db"; // Remplacez par votre clé API pour les tests
+const API_KEY = "YOUR_API_KEY_PLACEHOLDER";
 
 // Fonction principale pour récupérer les données météo
 async function fetchWeather() {
